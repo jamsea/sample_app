@@ -96,7 +96,7 @@ a.signup_button {
   padding: 20px;
 }
 
-/* Round corners */
+/* Round corners in 3 lines! Doesn't work in IE though :( */
 
 .round {
   -moz-border-radius:    10px;
@@ -116,3 +116,29 @@ footer {
 footer nav {
   float: none;
 }
+
+
+/* User show page */
+
+table.profile {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+td.main {
+  width: 70%;
+  padding: 1em;
+}
+
+td.sidebar {
+  width: 30%;
+  padding: 1em;
+  vertical-align: top;
+  background: #ffc;
+}
+
+.profile img.gravatar {
+  border: 1px solid #999;
+  margin-bottom: -15px;
+}
+
