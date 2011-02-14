@@ -18,8 +18,10 @@ class User < ActiveRecord::Base
   attr_accessor   :password
   attr_accessible :name, :email, :password, :password_confirmation, :role
   
+  #Make sure a valid email address is entered
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
+  #Each of these fields must be true in order for the record (user to be entered in the database)
   validates :role,  :presence => true,
                     :length   => { :maximum => 50 }  
   validates :name,  :presence => true,
@@ -50,7 +52,7 @@ class User < ActiveRecord::Base
   end
   
   private
-  
+  #Methods here can only be accessed by the object itself
     def encrypt_password
       self.salt = make_salt if new_record?
       self.encrypted_password = encrypt(password)
