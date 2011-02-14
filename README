@@ -1,1 +1,4 @@
-Rails tutorial I've been working on, planning on taking what I've learned to create my own website soon. http://railstutorial.org
+http://railstutorial.org helped me immensely while I was working on this, which you'll probably be able to tell from the changelogs.
+
+app/models/user.rb explains how the database is organized.
+app/controllers/users_controller.rb also has a lot of extra comments in it.
