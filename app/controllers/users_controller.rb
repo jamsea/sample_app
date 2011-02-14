@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
+
+#Runs the private methods "authenticate" and "correct_user" before index, edit, and update
   before_filter :authenticate, :only => [:index, :edit, :update]  
   before_filter :correct_user, :only =>  [:edit, :update]
  
+  #Code that lists all the users on the "users" page
   def index
    @title = "All users"
    @users = User.all
@@ -17,6 +20,7 @@ class UsersController < ApplicationController
     @title = "Sign up"
   end
   
+ #If sign up was successful, flash a message, otherwise reload the sign up page
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -32,6 +36,7 @@ class UsersController < ApplicationController
     @title = "Edit user"
   end
 
+#Find the user, check if the update went through, if it did flash a success message, otherwise reload the edit page
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
