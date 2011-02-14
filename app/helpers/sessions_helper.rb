@@ -12,9 +12,22 @@ module SessionsHelper
   def current_user
     @current_user ||= user_from_remember_token
   end
+
+  def current_user?(user)
+    user == current_user
+  end
   
   def signed_in?
     !current_user.nil?
+  end
+
+  def sign_out
+    cookies.delete(:remember_token)
+    self.current_user = nil
+  end
+  
+  def deny_access
+    redirect_to signin_path, :notice => "You must be signed in to access this page"
   end
   
   private
@@ -26,4 +39,5 @@ module SessionsHelper
     def remember_token
       cookies.signed[:remember_token] || [nil, nil]
     end
+    
 end
